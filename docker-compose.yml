@@ -1,0 +1,18 @@
+version: '2'
+services:
+  license_server:
+    image: racerpeter/jetbrains-license-server
+    ports:
+      - "8080:8080"
+    environment:
+      - LICENSE_SERVER_HOST=licenses.example.com
+      - LICENSE_SERVER_SMTP_SERVER=smtp.example.com
+      - LICENSE_SERVER_SMTP_PORT=465
+      - LICENSE_SERVER_SMTP_USERNAME=license_server
+      - LICENSE_SERVER_SMTP_PASSWORD=password
+      - LICENSE_SERVER_STATS_FROM=licenses@example.com
+      - LICENSE_SERVER_STATS_RECIPIENTS=management@mavenlink.com
+      - LICENSE_SERVER_STATS_TOKEN=SECRET
+    volumes:
+      - ./data:/root/.jb-license-server
+      - ./access-config.json:/root/access-config.json
