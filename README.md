@@ -1,5 +1,5 @@
 # jetbrains-license-server
-A dockerized JetBrains License Server based on tomcat:8.5.
+A dockerized JetBrains License Server based on tomcat:8.5. Available on Docker Hub at [racerpeter/jetbrains-license-server](https://hub.docker.com/r/racerpeter/jetbrains-license-server/).
 
 ## Getting Started
 Getting started with jetbrains-license-server is easy:
