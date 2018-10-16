@@ -3,7 +3,8 @@ MAINTAINER Peter Fry "https://github.com/racerpeter"
 
 ENV BASE_DIR=/usr/local/tomcat/license-server
 
-RUN /usr/bin/curl -o installer.zip https://download-cf.jetbrains.com/lcsrv/license-server-installer.zip && \
+# The query string param means nothing to the jetbrains server, and is only used to bump the build number in the dockerfile
+RUN /usr/bin/curl -o installer.zip https://download-cf.jetbrains.com/lcsrv/license-server-installer.zip?version=17955 && \
   mkdir $BASE_DIR && \
   unzip -d $BASE_DIR installer.zip && \
   rm -f installer.zip
