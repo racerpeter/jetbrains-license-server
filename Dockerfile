@@ -1,10 +1,10 @@
-FROM tomcat:8.5
+FROM anapsix/alpine-java:8_server-jre
 MAINTAINER Peter Fry "https://github.com/racerpeter"
 
-ENV BASE_DIR=/usr/local/tomcat/license-server
+ENV BASE_DIR=/usr/local/license-server
+RUN apk add --no-cache curl
 
-# The query string param means nothing to the jetbrains server, and is only used to bump the build number in the dockerfile
-RUN /usr/bin/curl -o installer.zip https://download-cf.jetbrains.com/lcsrv/license-server-installer.zip?version=17955 && \
+RUN /usr/bin/curl -o installer.zip -Ss https://download-cf.jetbrains.com/lcsrv/license-server-installer.zip?version=18692 && \
   mkdir $BASE_DIR && \
   unzip -d $BASE_DIR installer.zip && \
   rm -f installer.zip
